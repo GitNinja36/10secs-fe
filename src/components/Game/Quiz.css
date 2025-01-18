@@ -23,7 +23,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
+  gap: 5rem;
 }
 .left_top-section{
   padding: 1.3rem;
@@ -54,7 +55,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem; 
+  padding-top: 4rem;
 }
 .timer{
   position: relative;
@@ -96,23 +97,25 @@
   padding: 1rem;
 }
 .default-option{
-
   background-color: #323232;
   color: white;
   border: none; 
   padding: 10px 20px; 
   cursor: pointer;
-  border-radius: 5px; 
+  border-radius: 20px; 
   transition: background-color 0.3s; 
+  width: 260px;
 }
 
 .default-option:hover {
-    background-color: #4a4a4a; /* Slightly lighter shade on hover */
+    background-color: #4a4a4a;
 }
 .card-body_lifelines{
   display: flex;
   align-items: center;
 }
 .card-body_nextbtn{
-  width: 340px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
 }

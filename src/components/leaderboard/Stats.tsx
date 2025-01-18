@@ -17,11 +17,11 @@ function Stats({ gameStats, onBack, onNext  }: Props) {
         <div className="container grid">
             <div className="stats_container">
                 <div className="status_data">
-                    <h2 className="card-title">
-                        Your Game Stats
-                    </h2>
+                    <div className="card-title">
+                        <h2>Your Game Stats</h2>
+                    </div>
                     <div className="card-body">
-                            <div className="score card-score">
+                            <div className="card-score">
                             <p>
                                 Score: 
                             </p>
@@ -51,10 +51,10 @@ function Stats({ gameStats, onBack, onNext  }: Props) {
                 </div>
                     </div>
                     <div className="status_Button">
-                        <button className="btn" onClick={onBack}>
+                        <button className="btn backBtn" onClick={onBack}>
                             Home
                         </button>
-                        <button className="btn" onClick={onNext}>
+                        <button className="btn frontBtn" onClick={onNext}>
                             Leaderboard 
                         </button>
                     </div>

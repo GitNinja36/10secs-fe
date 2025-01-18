@@ -27,7 +27,9 @@
     color: #121212;
 }
 .card-title{
+    display: flex;
     align-items: center;
+    justify-content: center;
     font-size: 2rem;
     padding-bottom: 1rem;
 }
@@ -44,7 +46,8 @@
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    /* text-align: right; */
+    text-align: left;
+    
 }
 .status_Button{
     display: flex;
@@ -52,4 +55,31 @@
     justify-content: space-between;
     padding: 1rem;
     padding-bottom: 1rem;
+    gap: 1rem;
+}
+.backBtn{
+    background-color: #323232;
+    color: white;
+    border: none; 
+    padding: 10px 20px; 
+    cursor: pointer;
+    border-radius: 20px; 
+    transition: background-color 0.3s; 
+    width: 120px;
+}
+.backBtn:hover{
+    background-color: #4a4a4a;
+}
+.frontBtn{
+    background-color: #323232;
+    color: white;
+    border: none; 
+    padding: 10px 20px; 
+    cursor: pointer;
+    border-radius: 20px; 
+    transition: background-color 0.3s; 
+    width: 120px;
+}
+.frontBtn{
+    background-color: #4a4a4a;
 }

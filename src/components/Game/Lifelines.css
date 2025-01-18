@@ -17,7 +17,7 @@
 }
 
 .Btn50-50:hover{
-    color: #000000;
+    /* color: #000000; */
     background-color: #bf4a06;
 }
 .Btn2x{
@@ -26,5 +26,5 @@
 }
 .Btn2x:hover{
     background-color: #1899cc;
-    color: rgb(0, 0, 0);
+    /* color: rgb(0, 0, 0); */
 }
