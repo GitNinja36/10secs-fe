@@ -1,0 +1,60 @@
+/* Container styles */
+.container {
+    background-color: #121212;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #1f1f1f;  
+}
+.navbar_title {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.otp-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+.otpEntry{
+    background: #F7F4E3;
+    border-radius: 20px;
+    padding: 4rem;
+    max-width: 400px;
+    box-shadow: rgb(100, 100, 100);
+    margin-bottom: 1rem;  
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; 
+}
+.otp_input{
+    /* padding: 1rem; */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.otpEntry_input{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    height: 3rem;
+    width: 18rem;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+.otp_btn{
+    margin-left: 1rem;
+    background-color: #000000;
+    color: #FCFCE4;
+}
+.otpEntry_btn:hover{
+    background-color: #000000;
+    color: #A2C0C8;
+}

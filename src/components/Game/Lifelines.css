@@ -1,0 +1,21 @@
+.lifeline_conatiner{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14rem;
+    padding-top: 0.5rem;
+}
+.Lifeline_btn{
+    border-radius: 100%;
+    width: 56px;
+    height: 56px;
+}
+.Btn50-50{
+    background-color: aquamarine;
+    color: black;
+}
+.Btn2x{
+    background-color: rgb(251, 107, 40);
+    color: black;
+}

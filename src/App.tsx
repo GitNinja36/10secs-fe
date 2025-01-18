@@ -1,13 +1,13 @@
 import { useState, ReactElement } from 'react'
-
-import Home from './components/Home'
-import AboutGame from './components/AboutGame'
-import AboutLifelines from './components/AboutLifelines'
-import AboutTiebreaker from './components/AboutTiebreaker'
-import UserAuth from './components/UserAuth'
-import OTPVerification from './components/OTPVerification'
-import Game from './components/Game'
-import Stats from './components/Stats'
+import "./App.css";
+import Home from './Home'
+import AboutGame from './components/About/AboutGame'
+import AboutLifelines from './components/About/AboutLifelines'
+import AboutTiebreaker from './components/About/AboutTiebreaker'
+import UserAuth from './components/Authentication/UserAuth'
+import OTPVerification from './components/Authentication/OTPVerification'
+import Game from './components/Game/Game'
+import Stats from './components/leaderboard/Stats'
 
 function App() {
     const [currentComponentIdx, setCurrentComponentIdx] = useState(0);
