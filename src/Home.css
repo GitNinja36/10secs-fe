@@ -1,0 +1,134 @@
+/* Container styles */
+.container {
+    background-color: #272727;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color:  #000000;
+}
+
+.navbar_logo {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar_links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 3rem;
+    font-size: 1rem;
+}
+
+.navbar_profile {
+    font-size: 1.5rem;
+}
+
+/* Main section styles */
+.home_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.card {
+    background: #F7F4E3;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 400px;
+    box-shadow:  rgb(100, 100, 100);
+    /* border: 2px solid #1DC5F2; */
+}
+.card_component{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #121212;
+    padding-bottom: 6rem;
+}
+.card_logo {
+    padding-top: 1.5rem;
+    width: 400px;
+    /* margin-bottom: 1rem; */
+    
+}
+
+.card_title {
+    font-size: var(--mb-1-5);
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.card_btn {
+    background-color: #000000;
+    color: #FCFCE4;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1.3rem;
+}
+
+.card_btn:hover {
+    background-color: #000000;
+    color: #A2C0C8;
+}
+
+/* Media Queries */
+@media screen and (max-width: 992px) {
+    .card {
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar_links a {
+        margin: 0 0.5rem;
+    }
+
+    .card_logo {
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .card {
+        padding: 1.5rem;
+    }
+
+    .card_title {
+        font-size: 1.5rem;
+    }
+
+    .card_btn {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .navbar_links a {
+        font-size: 0.8rem;
+    }
+
+    .card_logo {
+        width: 60px;
+    }
+
+    .card_title {
+        font-size: 1.2rem;
+    }
+}
