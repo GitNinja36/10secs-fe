@@ -83,16 +83,35 @@ function Quiz({ question, options, rightOptionIdx, handleNext, handleOptionSelec
           <div className="card-body">
             <div className="card-body_top-section">
                 <div className="left_top-section">
-                    <p className="game_status">Question #1</p>
-                    <p className="game_status">Score 0</p>
-                    <p className="game_status">lifelines left</p>
+                    <div className="right_section-question">
+                        <p className="game_status">
+                            Question
+                        </p>
+                    </div>
+                    <div className="right_section-points">
+                        <p className="game_status">
+                            0
+                        </p>
+                    </div>
                 </div>
                 <div className="right_top-section">
+                    <div className="right_section-score">
+                        <p className="game_status">
+                            Score
+                        </p>
+                    </div>
+                    <div className="right_section-points">
+                        <p className="game_status">
+                            0
+                        </p>
+                    </div>
+                </div>
+                {/* <div className="right_top-section">
                     <i className="uil uil-clock"></i>
                     <p className='timer'>
                         {timeOver? null : <Timer totalTime={10} onTimeOver={onTimeOver} />}
                     </p>
-                </div>
+                </div> */}
             </div>
             <div className="card-body_question">
                 <h3 className="card-title">{question}</h3>
