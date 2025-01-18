@@ -12,10 +12,19 @@
     height: 56px;
 }
 .Btn50-50{
-    background-color: aquamarine;
-    color: black;
+    background-color: #e55603;
+    color: rgb(255, 255, 255);
+}
+
+.Btn50-50:hover{
+    color: #000000;
+    background-color: #bf4a06;
 }
 .Btn2x{
-    background-color: rgb(251, 107, 40);
-    color: black;
+    background-color: #1dafea;
+    color: rgb(255, 255, 255);
+}
+.Btn2x:hover{
+    background-color: #1899cc;
+    color: rgb(0, 0, 0);
 }

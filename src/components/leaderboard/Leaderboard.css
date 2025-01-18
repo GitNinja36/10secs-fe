@@ -1,0 +1,81 @@
+
+.leaderboard {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  background: #6c5ce7;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.podium {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.podium-spot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.first { order: -1; }
+.second { order: 0; }
+.third { order: 1; }
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.score {
+  color: #f1c40f;
+}
+
+.players-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.player-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: #5e54a4;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.rank {
+  font-weight: bold;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.save-btn, .share-btn {
+  background: #00cec9;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.save-btn:hover, .share-btn:hover {
+  background: #00b894;
+}

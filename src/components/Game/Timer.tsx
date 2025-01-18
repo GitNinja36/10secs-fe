@@ -18,8 +18,8 @@ function Timer({ totalTime, onTimeOver }: Props) {
     }, [timeLeft]);
 
     return (
-        <div className="badge badge-info">
-            Time Left: {" " + timeLeft}
+        <div className="">
+            { timeLeft}
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import roundLogo from "../src/assets/images/round-logo.png";
 import './Home.css';
+
 interface Props {
     onStart: () => void;
 }

@@ -30,7 +30,17 @@ const getRandomWrongOptions = (rightOption: number) => {
     return randomOptions;
 };
 
-function Quiz({ question, options, rightOptionIdx, handleNext, handleOptionSelected, handleFiftyFifty, handleTwoX, fiftyFiftyLeft, twoXLeft }: Props) {
+function Quiz({
+    question,
+    options,
+    rightOptionIdx,
+    handleNext,
+    handleOptionSelected,
+    handleFiftyFifty,
+    handleTwoX,
+    fiftyFiftyLeft,
+    twoXLeft,
+}: Props) {
     const [timeOver, setTimeOver] = useState(false);
     const [optionSelected, setOptionSelected] = useState(-1);
     const [optionsRemoved, setOptionsRemoved] = useState<number[]>([]);
@@ -39,23 +49,23 @@ function Quiz({ question, options, rightOptionIdx, handleNext, handleOptionSelec
         setTimeOver(false);
         setOptionSelected(-1);
         setOptionsRemoved([]);
-    }, [question])
+    }, [question]);
 
     const onTimeOver = () => {
         setTimeOver(true);
-    }
+    };
 
     const eliminateTwoWrongOptions = () => {
         setOptionsRemoved(getRandomWrongOptions(rightOptionIdx));
         handleFiftyFifty();
-    }
+    };
 
     const getOptionStyle = (idx: number) => {
         if (optionSelected === -1) {
             if (idx === rightOptionIdx && timeOver) {
                 return "btn btn-success";
             } else {
-                return "btn";
+                return "btn default-option";
             }
         } else {
             if (idx === rightOptionIdx) {
@@ -63,10 +73,10 @@ function Quiz({ question, options, rightOptionIdx, handleNext, handleOptionSelec
             } else if (idx === optionSelected) {
                 return "btn btn-error";
             } else {
-                return "btn";
+                return "btn default-option";
             }
         }
-    }
+    };
 
     const onOptionSelected = (idx: number) => {
         if (timeOver) {
@@ -76,80 +86,88 @@ function Quiz({ question, options, rightOptionIdx, handleNext, handleOptionSelec
         setOptionSelected(idx);
         setTimeOver(true);
         handleOptionSelected(idx === rightOptionIdx);
-    }
+    };
 
     return (
         <div className="conatiner">
-          <div className="card-body">
-            <div className="card-body_top-section">
-                <div className="left_top-section">
-                    <div className="right_section-question">
-                        <p className="game_status">
-                            Question
-                        </p>
+            <div className="card-body">
+                {/* Top Section */}
+                <div className="card-body_top-section">
+                    <div className="left_top-section">
+                        <div className="right_section-question">
+                            <p className="game_status">Question</p>
+                        </div>
+                        <div className="right_section-points">
+                            <p className="game_status">0</p>
+                        </div>
                     </div>
-                    <div className="right_section-points">
-                        <p className="game_status">
-                            0
-                        </p>
-                    </div>
-                </div>
-                <div className="right_top-section">
-                    <div className="right_section-score">
-                        <p className="game_status">
-                            Score
-                        </p>
-                    </div>
-                    <div className="right_section-points">
-                        <p className="game_status">
-                            0
-                        </p>
+                    <div className="right_top-section">
+                        <div className="right_section-score">
+                            <p className="game_status">Score</p>
+                        </div>
+                        <div className="right_section-points">
+                            <p className="game_status">0</p>
+                        </div>
                     </div>
                 </div>
-                {/* <div className="right_top-section">
-                    <i className="uil uil-clock"></i>
-                    <p className='timer'>
-                        {timeOver? null : <Timer totalTime={10} onTimeOver={onTimeOver} />}
-                    </p>
-                </div> */}
-            </div>
-            <div className="card-body_question">
-                <h3 className="card-title">{question}</h3>
-            </div>
-            <div className="card-body_options">
-                {options.map((option, idx) => (
-                    !optionsRemoved.includes(idx) ? (<button
-                        key={idx}
-                        className={getOptionStyle(idx)}
-                        onClick={() => onOptionSelected(idx)}
-                    >
-                {option}
-                    </button>) : null
-                ))}
-            </div>
 
-            <div className="card-body_lifelines">
-                {timeOver? null : (
-                    <Lifelines
-                        handleFiftyFifty={eliminateTwoWrongOptions}
-                        handleTwoX={handleTwoX}
-                        fiftyFiftyLeft={fiftyFiftyLeft}
-                        twoXLeft={twoXLeft}
-                    />
-                )}
-            </div>
-            
-            {/* {timeOver? <br /> : null}  */}
-            <div className="card-body_nextbtn">
-                {timeOver? (
-                    <div className="join grid grid-cols-2">
-                        <button className="join-item btn" onClick={handleNext}>Next</button>
+                {/* Timer Section */}
+                <div className="card-body_timer">
+                    <div className="timer">
+                        <p className="timer_count">
+                            {timeOver ? "0" : <Timer totalTime={600} onTimeOver={onTimeOver} />}
+                        </p>
                     </div>
-                ) : null}
+                </div>
+
+                {/* Question Section */}
+                <div className="card-body_question">
+                    <h3 className="card-question">{question}</h3>
+                </div>
+
+                {/* Options Section */}
+                <div className="card-body_options">
+                    {options.map((option, idx) =>
+                        !optionsRemoved.includes(idx) ? (
+                            <button
+                                key={idx}
+                                className={getOptionStyle(idx)}
+                                onClick={() => onOptionSelected(idx)}
+                            >
+                                {option}
+                            </button>
+                        ) : null
+                    )}
+                </div>
+
+                {/* Lifelines Section */}
+                <div className="card-body_lifelines">
+                    {timeOver ? null : (
+                        <Lifelines
+                            handleFiftyFifty={eliminateTwoWrongOptions}
+                            handleTwoX={handleTwoX}
+                            fiftyFiftyLeft={fiftyFiftyLeft}
+                            twoXLeft={twoXLeft}
+                        />
+                    )}
+                </div>
+
+                {/* Next Button */}
+                <div className="card-body_nextbtn">
+                    {timeOver ? (
+                        <div className="join grid grid-cols-2">
+                            <button
+                                className="join-item btn default-option"
+                                onClick={handleNext}
+                            >
+                                Next
+                            </button>
+                        </div>
+                    ) : null}
+                </div>
             </div>
-          </div>
         </div>
-    )
+    );
 }
 
 export default Quiz;

@@ -3,18 +3,17 @@
   background-color: #121212;
   color: white;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 .card-body{
-  background: #f88603;
+  background: #1c1c1c;
   border-radius: 20px;
   padding: 2rem;
   text-align: center;
   max-width: 400px;
-  /* width: 100%; */
-  /* border: 2px solid #7d3cff; */
-  box-shadow: rgb(100, 100, 100);
+  border: 2px solid #ffffff;
+  border-style: solid;
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
@@ -24,41 +23,91 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .left_top-section{
   padding: 1.3rem;
-  background-color: #d6d6d3;
+  background-color: #323232;
   border-radius: 20px;
-  color: #121212;
+  color: #ffffff;
   text-align: left;
   font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 .right_top-section{
-  padding: 1.75rem;
-  background-color: #d6d6d3;
-  color: #121212;
+  padding: 1.38rem;
+  background-color: #323232;
+  color: #ffffff;
   border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
   font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
-.right_top-section i{
-  font-size: 2rem;
+.card-body_timer{
+  position: relative;
+  margin: 0 auto;
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem; 
+}
+.timer{
+  position: relative;
+  width: 62px;
+  height: 62px;
+  border: 4px solid #00bcd4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c1c1c; 
+}
+.timer_count{
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00bcd4;
+  text-align: center;
+  line-height: 62px;
 }
 .card-body_question{
   display: flex;
-  padding: 1rem;
-  width: 480px;
+  text-align: center;
+  justify-content: center;
+  padding: 2rem;
+  padding-top: 2rem;
+  width: auto;
   height: 140px;
   font-size: auto;
+  border-radius: 20px;
+  background-color: #323232;
+}
+.card-question{
+  color: #ffffff;
 }
 .card-body_options{
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
+}
+.default-option{
+
+  background-color: #323232;
+  color: white;
+  border: none; 
+  padding: 10px 20px; 
+  cursor: pointer;
+  border-radius: 5px; 
+  transition: background-color 0.3s; 
+}
+
+.default-option:hover {
+    background-color: #4a4a4a; /* Slightly lighter shade on hover */
 }
 .card-body_lifelines{
   display: flex;
