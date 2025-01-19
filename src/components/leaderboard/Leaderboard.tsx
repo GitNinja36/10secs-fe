@@ -1,68 +1,118 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Leaderboard.css";
+import { players } from "./Player.tsx";
 
-interface Player {
-  name: string;
-  score: number;
-  avatar: string;
-}
-
-interface LeaderboardProps {
-  players: Player[];
+interface Props {
+  onBack: () => void;
   onNext: () => void;
 }
 
-const Leaderboard: React.FC<LeaderboardProps> = ({ players }) => {
+const Leaderboard: React.FC<Props> = ({ onBack, onNext }) => {
+  // Sort players by score in descending order
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
-  const [first, second, third, ...rest] = sortedPlayers;
+
+  // Top 3 players
+  const top3 = sortedPlayers.slice(0, 3);
+
+  // Remaining players for pagination
+  const remainingPlayers = sortedPlayers.slice(3);
+  const playersPerPage = 6;
+  const totalPages = Math.ceil(remainingPlayers.length / playersPerPage);
+
+  // Current page state (default is page 1)
+  const [currentPage, setCurrentPage] = React.useState(1);
+
+  const paginatedPlayers = remainingPlayers.slice(
+    (currentPage - 1) * playersPerPage,
+    currentPage * playersPerPage
+  );
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
 
   return (
-    <div className="leaderboard">
-      <h2>Final Scoreboard</h2>
+    <div className="container">
+      <div className="leaderboard-container">
+        {/* Header */}
+        <div className="leaderboard-header">
+          <button className="btn leaderboard-rules-btn" onClick={onNext}>
+            <i className="uil uil-info"></i>
+          </button>
+          <h2 className="leaderboard-title">Leaderboard</h2>
+          <button className="btn header-button" onClick={onBack}>
+            <i className="uil uil-bars"></i>
+          </button>
+        </div>
 
-      {/* Podium Section */}
-      <div className="podium">
-        {second && (
-          <div className="podium-spot second">
-            <img src={second.avatar} alt={second.name} className="avatar" />
-            <p className="name">{second.name}</p>
-            <p className="score">{second.score} Pt</p>
-          </div>
-        )}
+        {/* Top 3 Leaders */}
+        <div className="top-leaderboard">
+          {top3.map((leader, index) => (
+            <div
+              key={leader.id}
+              className={`top-leaderboard-container ${
+                index === 0
+                  ? "leader-gold"
+                  : index === 1
+                  ? "leader-silver"
+                  : "leader-bronze"
+              }`}
+            >
+              <img
+                src={leader.avatar}
+                alt={leader.name}
+                className="leader-avatar"
+              />
+              <p className="leader-name">{leader.name}</p>
+              <p className="leader-score">{leader.score}</p>
+            </div>
+          ))}
+        </div>
 
-        {first && (
-          <div className="podium-spot first">
-            <img src={first.avatar} alt={first.name} className="avatar" />
-            <p className="name">{first.name}</p>
-            <p className="score">{first.score} Pt</p>
-          </div>
-        )}
+        {/* Other Players */}
+        <div className="other-players">
+          {paginatedPlayers.map((player, idx) => (
+            <div key={player.id} className="player">
+              <div className="player-info">
+                <span className="player-rank">
+                  {3 + idx + 1 + (currentPage - 1) * playersPerPage}
+                </span>
+                <img
+                  src={player.avatar}
+                  alt={player.name}
+                  className="player-avatar"
+                />
+                <p className="player-name">{player.name}</p>
+              </div>
+              <p className="player-score">{player.score}</p>
+            </div>
+          ))}
+        </div>
 
-        {third && (
-          <div className="podium-spot third">
-            <img src={third.avatar} alt={third.name} className="avatar" />
-            <p className="name">{third.name}</p>
-            <p className="score">{third.score} Pt</p>
-          </div>
-        )}
-      </div>
-
-      {/* Remaining Players */}
-      <ul className="players-list">
-        {rest.map((player, index) => (
-          <li key={player.name} className="player-item">
-            <span className="rank">{index + 4}</span>
-            <img src={player.avatar} alt={player.name} className="avatar" />
-            <span className="name">{player.name}</span>
-            <span className="score">{player.score}</span>
-          </li>
-        ))}
-      </ul>
-
-      {/* Action Buttons */}
-      <div className="actions">
-        <button className="save-btn">Save</button>
-        <button className="share-btn">Share</button>
+        {/* Navigation */}
+        <div className="leaderboard-footer">
+          <button
+            className="footer-button"
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}
+          >
+            Back
+          </button>
+          <span className="footer-page">
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            className="footer-button"
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

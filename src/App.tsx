@@ -8,7 +8,7 @@ import UserAuth from './components/Authentication/UserAuth'
 import OTPVerification from './components/Authentication/OTPVerification'
 import Game from './components/Game/Game'
 import Stats from './components/leaderboard/Stats'
-import Leaderboard from './components/leaderboard/Leaderboard';
+// import Leaderboard from './components/leaderboard/Leaderboard.tsx';
 
 function App() {
     const [currentComponentIdx, setCurrentComponentIdx] = useState(0);
@@ -26,23 +26,16 @@ function App() {
         setCurrentComponentIdx(currentComponentIdx - 1);
     }
 
-    const players = [
-        { name: 'Player 1', score: 100, avatar: 'avatar1.png' },
-        { name: 'Player 2', score: 80, avatar: 'avatar2.png' },
-        { name: 'Player 3', score: 60, avatar: 'avatar3.png' },
-        // Add more players as needed
-      ];
-
     const idxToComponent: Record<number, ReactElement> = {
         0: <Home onStart={moveToNextComponent} />,
         1: <AboutGame onBack={moveToPrevComponent} onNext={moveToNextComponent} />,
         2: <AboutLifelines onBack={moveToPrevComponent} onNext={moveToNextComponent} />,
-        3: <AboutTiebreaker onBack={moveToPrevComponent} onNext={moveToNextComponent} />,
-        4: <UserAuth handleSubmit={moveToNextComponent} />,
-        5: <OTPVerification handleVerify={moveToNextComponent} />,
-        6: <Game showStats={moveToNextComponent} setStats={setGameStats} />,
-        7: <Stats gameStats={gameStats} onBack={moveToHomeComponent} onNext={moveToNextComponent} />,
-        8: <Leaderboard players={players} onNext={moveToNextComponent}/>
+        3: <UserAuth handleSubmit={moveToNextComponent} />,
+        4: <OTPVerification handleVerify={moveToNextComponent} />,
+        5: <Game showStats={moveToNextComponent} setStats={setGameStats} />,
+        6: <Stats gameStats={gameStats} onBack={moveToHomeComponent} onNext={moveToNextComponent} />,
+        // 7: <Leaderboard  onBack={moveToHomeComponent} onNext={moveToNextComponent}/>,
+        7: <AboutTiebreaker onBack={moveToPrevComponent} onNext={moveToNextComponent} />,
     }
 
     return (

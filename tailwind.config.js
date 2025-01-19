@@ -1,7 +1,10 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'], // Ensure this path matches your project
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {},
   },
-  plugins: [require('daisyui')],
+  plugins: [],
 };

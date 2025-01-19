@@ -12,7 +12,9 @@ function Lifelines({ handleFiftyFifty, handleTwoX, fiftyFiftyLeft, twoXLeft }: P
             <div className="lifeline_conatiner">
                     {(fiftyFiftyLeft? <button className="btn Lifeline_btn Btn50-50" onClick={handleFiftyFifty} >50:50</button> : null)}
 
-                    {(twoXLeft? <button className="btn Lifeline_btn Btn2x" onClick={handleTwoX} >2x</button> : null)}
+                    {(twoXLeft? <button className="btn Lifeline_btn Btn2x" onClick={handleTwoX} >
+                        <i className="uil uil-bolt"></i>
+                    </button> : null)}
             </div>
         </span>
     )

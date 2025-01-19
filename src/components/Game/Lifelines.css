@@ -22,7 +22,9 @@
 }
 .Btn2x{
     background-color: #1dafea;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    align-items: center;
 }
 .Btn2x:hover{
     background-color: #1899cc;

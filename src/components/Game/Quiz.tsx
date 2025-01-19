@@ -92,7 +92,7 @@ function Quiz({
         <div className="conatiner">
             <div className="card-body">
                 {/* Top Section */}
-                <div className="card-body_top-section">
+                {/* <div className="card-body_top-section">
                     <div className="left_top-section">
                         <div className="right_section-question">
                             <p className="game_status">Question</p>
@@ -109,7 +109,7 @@ function Quiz({
                             <p className="game_status">0</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 {/* Timer Section */}
                 <div className="card-body_timer">
