@@ -1,26 +1,19 @@
 import React, { useState } from "react";
-import "./Leaderboard.css";
-import { players } from "./Player.tsx";
+import { useNavigate } from "react-router-dom";
+import "./Leaderboard1.css";
+import { players } from "./Player";
 
-interface Props {
-  onBack: () => void;
-  onNext: () => void;
-}
-
-const Leaderboard: React.FC<Props> = ({ onBack, onNext }) => {
-  // Sort players by score in descending order
+const Leaderboard: React.FC = () => {
+  const navigate = useNavigate();
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
 
-  // Top 3 players
   const top3 = sortedPlayers.slice(0, 3);
 
-  // Remaining players for pagination
   const remainingPlayers = sortedPlayers.slice(3);
   const playersPerPage = 6;
   const totalPages = Math.ceil(remainingPlayers.length / playersPerPage);
 
-  // Current page state (default is page 1)
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const paginatedPlayers = remainingPlayers.slice(
     (currentPage - 1) * playersPerPage,
@@ -40,11 +33,11 @@ const Leaderboard: React.FC<Props> = ({ onBack, onNext }) => {
       <div className="leaderboard-container">
         {/* Header */}
         <div className="leaderboard-header">
-          <button className="btn leaderboard-rules-btn" onClick={onNext}>
+          <button className="btn header-button" onClick={() => navigate("/about-tiebreaker")}>
             <i className="uil uil-info"></i>
           </button>
           <h2 className="leaderboard-title">Leaderboard</h2>
-          <button className="btn header-button" onClick={onBack}>
+          <button className="btn header-button" onClick={() => navigate("/")}>
             <i className="uil uil-bars"></i>
           </button>
         </div>
@@ -100,17 +93,17 @@ const Leaderboard: React.FC<Props> = ({ onBack, onNext }) => {
             onClick={handlePrevPage}
             disabled={currentPage === 1}
           >
-            Back
+            <i className="uil uil-angle-double-left"></i>
           </button>
           <span className="footer-page">
-            Page {currentPage} of {totalPages}
+            {" "}{currentPage} {" "}
           </span>
           <button
             className="footer-button"
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
           >
-            Next
+            <i className="uil uil-angle-double-right"></i>
           </button>
         </div>
       </div>

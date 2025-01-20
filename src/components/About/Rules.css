@@ -8,7 +8,7 @@
 }
 
 /* Navbar styles */
-.navbar {
+/* .navbar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@
     color: white;
     font-size: 2rem;
     font-weight: bold;
-}
+} */
 
 /* Rules container styles */
 .rules_container {
@@ -29,6 +29,7 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    height: 600px;
     /* padding: 2rem; */
 }
 
@@ -43,23 +44,27 @@
     /* border: 2px solid #7d3cff; */
     box-shadow: rgb(100, 100, 100);
     margin-bottom: 1rem;
-}
-.rules__card{
     background: #F7F4E3;
     border-radius: 20px;
 }
 /* Rules list styles */
-.rules_list {
+.rules_dash{
+    color: #000000;
+}
+.rules_items {
     list-style: none;
     padding: 0;
     margin: 0;
+    padding-bottom: 1rem;
 }
 
-.rules_item {
+.rules_description {
     text-align: left;
     font-size: 1rem;
     color: #121212;
     margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
 }
 
 /* Button styles */
@@ -68,7 +73,7 @@
     justify-content:space-evenly;
     /* width: 100%; */
     /* max-width: 400px; */
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 }
 
 .rules_btn {

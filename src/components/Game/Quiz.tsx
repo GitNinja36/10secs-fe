@@ -91,26 +91,7 @@ function Quiz({
     return (
         <div className="conatiner">
             <div className="card-body">
-                {/* Top Section */}
-                {/* <div className="card-body_top-section">
-                    <div className="left_top-section">
-                        <div className="right_section-question">
-                            <p className="game_status">Question</p>
-                        </div>
-                        <div className="right_section-points">
-                            <p className="game_status">0</p>
-                        </div>
-                    </div>
-                    <div className="right_top-section">
-                        <div className="right_section-score">
-                            <p className="game_status">Score</p>
-                        </div>
-                        <div className="right_section-points">
-                            <p className="game_status">0</p>
-                        </div>
-                    </div>
-                </div> */}
-
+                <div className="card_conatiner">
                 {/* Timer Section */}
                 <div className="card-body_timer">
                     <div className="timer">
@@ -155,15 +136,16 @@ function Quiz({
                 {/* Next Button */}
                 <div className="card-body_nextbtn">
                     {timeOver ? (
-                        <div className="join grid grid-cols-2">
+                        <div className="nextbtn">
                             <button
-                                className="join-item btn default-option"
+                                className="join-item btn nxt-default-option"
                                 onClick={handleNext}
                             >
                                 Next
                             </button>
                         </div>
                     ) : null}
+                </div>
                 </div>
             </div>
         </div>

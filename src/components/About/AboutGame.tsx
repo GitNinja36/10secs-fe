@@ -1,11 +1,8 @@
 import Rules from './Rules';
+import { useNavigate } from 'react-router-dom';
 
-interface Props {
-    onBack: () => void;
-    onNext: () => void;
-}
-
-function AboutGame({ onBack, onNext }: Props) {
+function AboutGame() {
+    const navigate = useNavigate();
     const rules = [
         "Stay updated on global and local news by playing our engaging quiz-style game.",
         "You'll have 10 seconds to read the question and choose your answer.",
@@ -16,8 +13,21 @@ function AboutGame({ onBack, onNext }: Props) {
         "Stay updated on winner announcements and upcoming contests by following our Instagram page @10secs.app"
     ]
 
+    const handleBack = () => {
+        navigate('/'); 
+    };
+
+    const handleNext = () => {
+        navigate('/about-lifelines');
+    };
+
     return (
-        <Rules title="About the Game" rules={rules} onBack={onBack} onNext={onNext} />
+        <Rules
+            title="About the Game"
+            rules={rules}
+            onBack={handleBack}
+            onNext={handleNext}
+        />
     );
 };
 

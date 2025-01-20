@@ -1,11 +1,8 @@
 import Rules from './Rules';
+import { useNavigate } from 'react-router-dom';
 
-interface Props {
-    onBack: () => void;
-    onNext: () => void;
-}
-
-function AboutLifelines({ onBack, onNext }: Props) {
+function AboutLifelines() {
+    const navigate = useNavigate();
     const rules = [
         "Each user starts with two lifelines.",
         "50:50: Removes two incorrect options from the choices.",
@@ -15,8 +12,20 @@ function AboutLifelines({ onBack, onNext }: Props) {
         "Visit the 'Referral' section in the menu to find and share your referral code."
     ]
 
+    const handleBack = () => {
+        navigate('/about-game'); 
+    };
+
+    const handleNext = () => {
+        navigate('/user-auth');
+    };
+
     return (
-        <Rules title="Lifelines" rules={rules} onBack={onBack} onNext={onNext} />
+        <Rules title="Lifelines" 
+        rules={rules}
+        onBack={handleBack}
+        onNext={handleNext}
+    />
     );
 };
 

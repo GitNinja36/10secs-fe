@@ -1,27 +1,24 @@
 import { useState, ChangeEvent } from "react";
-import { toast } from "react-toastify";
-import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 import "./UserAuth.css";
 
-interface Props {
-    handleSubmit: () => void;
-}
-
-function UserAuth({ handleSubmit }: Props): JSX.Element {
+function UserAuth(): JSX.Element {
     const [phoneNumber, setPhoneNumber] = useState<string>("");
     const [referralCode, setReferralCode] = useState<string>("");
 
+    const navigate = useNavigate(); // Initialize navigation
+
     // Validate phone number input
     const onPhoneNumberChanged = (event: ChangeEvent<HTMLInputElement>): void => {
-        const value = event.target.value;
-        setPhoneNumber(value); // Update phone number as the user types
+        setPhoneNumber(event.target.value);
     };
 
     // Validate referral code input
     const onReferralCodeChanged = (event: ChangeEvent<HTMLInputElement>): void => {
         const value = event.target.value;
-        const isValid = /^\s*$|^[a-zA-Z0-9]{6}$/.test(value); // Regular expression for 6 alphanumeric characters or empty string
+        const isValid = /^\s*$|^[a-zA-Z0-9]{6}$/.test(value);
 
         if (isValid) {
             setReferralCode(value);
@@ -35,22 +32,18 @@ function UserAuth({ handleSubmit }: Props): JSX.Element {
 
     // Handle submit
     const onSubmit = (): void => {
-        // Validate phone number on form submission
         if (!phoneNumber) {
-            toast.error("Phone number is required!", {
-                position: "top-right",
-            });
+            toast.error("Phone number is required!", { position: "top-right" });
             return;
         }
 
         if (!/^\d{10}$/.test(phoneNumber)) {
-            toast.error("Phone number must be exactly 10 digits!", {
-                position: "top-right",
-            });
+            toast.error("Phone number must be exactly 10 digits!", { position: "top-right" });
             return;
         }
 
-        handleSubmit();
+        // Navigate to the OTP verification page after validation
+        navigate("/otp-verification", { state: { phoneNumber, referralCode } });
     };
 
     return (

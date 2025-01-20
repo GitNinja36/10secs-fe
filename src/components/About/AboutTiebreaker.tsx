@@ -1,11 +1,8 @@
 import Rules from './Rules';
+import { useNavigate } from 'react-router-dom';
 
-interface Props {
-    onBack: () => void;
-    onNext: () => void;
-}
-
-function AboutTiebreaker({ onBack, onNext }: Props) {
+function AboutTiebreaker() {
+    const navigate = useNavigate();
     const rules = [
         "Leaderboard rankings are determined based on users' total points, with higher points earning a higher rank.",
         "In case of a tie in points, the user with the lower average response time will be ranked higher.",
@@ -14,8 +11,19 @@ function AboutTiebreaker({ onBack, onNext }: Props) {
         "If the tie still persists, the ranking will be decided randomly."
     ]
 
+    const handleBack = () => {
+        navigate('/about-game'); 
+    };
+
+    const handleNext = () => {
+        navigate('/user-auth');
+    };
+
     return (
-        <Rules title="Tiebreaker" rules={rules} onBack={onBack} onNext={onNext} />
+        <Rules title="Tiebreaker"
+        rules={rules}
+        onBack={handleBack}
+        onNext={handleNext}/>
     );
 };
 
