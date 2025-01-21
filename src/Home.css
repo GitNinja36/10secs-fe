@@ -81,11 +81,12 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-bottom: 1.3rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .card_btn:hover {
-    background-color: #000000;
-    color: #A2C0C8;
+    background-color: #292929;
+    color: #ffffff;
 }
 
 /* Media Queries */

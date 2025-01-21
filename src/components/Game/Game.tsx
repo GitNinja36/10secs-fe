@@ -82,6 +82,7 @@ function Game() {
             handleTwoX={handleTwoX}
             fiftyFiftyLeft={fiftyFiftyLeft}
             twoXLeft={twoXLeft}
+            useTwoX={useTwoX} 
         />
     );
 }

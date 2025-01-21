@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Leaderboard1.css";
 import { players } from "./Player";
-
+import TopLeaderboard from "./topLeaderboard";
+import NavMenu from "./NavMenu";
 const Leaderboard: React.FC = () => {
   const navigate = useNavigate();
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
@@ -32,16 +33,8 @@ const Leaderboard: React.FC = () => {
     <div className="container">
       <div className="leaderboard-container">
         {/* Header */}
-        <div className="leaderboard-header">
-          <button className="btn header-button" onClick={() => navigate("/about-tiebreaker")}>
-            <i className="uil uil-info"></i>
-          </button>
-          <h2 className="leaderboard-title">Leaderboard</h2>
-          <button className="btn header-button" onClick={() => navigate("/")}>
-            <i className="uil uil-bars"></i>
-          </button>
-        </div>
-
+        <TopLeaderboard/>
+        <NavMenu/>
         {/* Top 3 Leaders */}
         <div className="top-leaderboard">
           {top3.map((leader, index) => (

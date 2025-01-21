@@ -13,6 +13,7 @@ interface Props {
     handleTwoX: () => void;
     fiftyFiftyLeft: number;
     twoXLeft: number;
+    useTwoX: boolean;
 }
 
 const getRandomWrongOptions = (rightOption: number) => {
@@ -40,10 +41,12 @@ function Quiz({
     handleTwoX,
     fiftyFiftyLeft,
     twoXLeft,
+    useTwoX
 }: Props) {
     const [timeOver, setTimeOver] = useState(false);
     const [optionSelected, setOptionSelected] = useState(-1);
-    const [optionsRemoved, setOptionsRemoved] = useState<number[]>([]);
+    const [optionsRemoved, setOptionsRemoved] = useState<number[]>
+    ([]);
 
     useEffect(() => {
         setTimeOver(false);
@@ -65,7 +68,7 @@ function Quiz({
             if (idx === rightOptionIdx && timeOver) {
                 return "btn btn-success";
             } else {
-                return "btn default-option";
+                return useTwoX ? "btn btn-light-blue" : "btn default-option";
             }
         } else {
             if (idx === rightOptionIdx) {

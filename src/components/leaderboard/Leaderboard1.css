@@ -9,6 +9,8 @@
 .leaderboard-container{
   background-color: #fffaf0;
   padding: 20px;
+  padding-top: 0rem;
+  margin-top: 0rem;
   border-radius: 15px;
   width: 400px;
   margin: 20px auto;
@@ -44,8 +46,62 @@
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+.navMenu_container {
+  /* background-color: #ffffff; */
+  /* border-radius: 10px; */
+  width: 100%;
+  /* max-width: 400px; */
+  margin: 10px auto;
+  padding: 10px 15px;
+  box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
+.leaderboard-NavMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
 
+.navMenu_items {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 1;
+  gap: 50px;
+  margin-left: 5rem;
+  margin-right: 3rem;
+}
+
+.navMenu_item {
+  color: #333333;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navMenu_item:hover {
+  color: #007bff;
+  transform: scale(1.1);
+}
+
+.navMenu_items-close {
+  margin-left: 1.5rem;
+}
+
+.navMenu_close {
+  color: #000000;
+  font-size: 1.5rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navMenu_close:hover {
+  color: #ff0000;
+  transform: rotate(90deg);
+}
 .header-button:hover{
   background-color: #474747;
   box-shadow: 0 4px 10px rgba(4, 4, 4, 0.2);

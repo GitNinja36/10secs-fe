@@ -10,6 +10,7 @@
     border-radius: 100%;
     width: 56px;
     height: 56px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 .Btn50-50{
     background-color: #e55603;
@@ -22,9 +23,10 @@
 }
 .Btn2x{
     background-color: #1dafea;
-    color: rgb(0, 0, 0);
-    font-size: 1.5rem;
+    color: #e5cb22;
+    font-size: 1.8rem;
     align-items: center;
+    padding-left: 1rem;
 }
 .Btn2x:hover{
     background-color: #1899cc;
