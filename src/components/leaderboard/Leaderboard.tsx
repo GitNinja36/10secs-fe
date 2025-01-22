@@ -1,19 +1,23 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import "./Leaderboard1.css";
 import { players } from "./Player";
-import TopLeaderboard from "./topLeaderboard";
+import TopLeaderboard from "./TopLeaderboard";
 import NavMenu from "./NavMenu";
-const Leaderboard: React.FC = () => {
-  const navigate = useNavigate();
-  const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
+import { ifNav } from "../../store/atoms/count";
 
+const Leaderboard: React.FC = () => {
+  // const navigate = useNavigate();
+  const showTopLeaderboard = useRecoilValue(ifNav);
+
+  const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
   const top3 = sortedPlayers.slice(0, 3);
 
   const remainingPlayers = sortedPlayers.slice(3);
   const playersPerPage = 6;
-  const totalPages = Math.ceil(remainingPlayers.length / playersPerPage);
 
+  const totalPages = Math.ceil(remainingPlayers.length / playersPerPage);
   const [currentPage, setCurrentPage] = useState(1);
 
   const paginatedPlayers = remainingPlayers.slice(
@@ -33,8 +37,7 @@ const Leaderboard: React.FC = () => {
     <div className="container">
       <div className="leaderboard-container">
         {/* Header */}
-        <TopLeaderboard/>
-        <NavMenu/>
+        {showTopLeaderboard ? <TopLeaderboard /> : <NavMenu />}
         {/* Top 3 Leaders */}
         <div className="top-leaderboard">
           {top3.map((leader, index) => (
@@ -42,9 +45,9 @@ const Leaderboard: React.FC = () => {
               key={leader.id}
               className={`top-leaderboard-container ${
                 index === 0
-                  ? "leader-gold"
-                  : index === 1
                   ? "leader-silver"
+                  : index === 1
+                  ? "leader-gold"
                   : "leader-bronze"
               }`}
             >
@@ -64,17 +67,12 @@ const Leaderboard: React.FC = () => {
           {paginatedPlayers.map((player, idx) => (
             <div key={player.id} className="player">
               <div className="player-info">
-                <span className="player-rank">
+                <p className="player-rank">
                   {3 + idx + 1 + (currentPage - 1) * playersPerPage}
-                </span>
-                <img
-                  src={player.avatar}
-                  alt={player.name}
-                  className="player-avatar"
-                />
+                </p>
                 <p className="player-name">{player.name}</p>
+                <p className="player-score">{player.score}</p>
               </div>
-              <p className="player-score">{player.score}</p>
             </div>
           ))}
         </div>

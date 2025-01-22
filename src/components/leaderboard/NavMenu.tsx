@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { ifNav } from "../../store/atoms/count"; 
+
 function NavMenu() {
     const navigate = useNavigate();
+    const setIfNav = useSetRecoilState(ifNav);
   return (
     <div className="navMenu_container">
       <div className="leaderboard-NavMenu">
@@ -36,7 +40,7 @@ function NavMenu() {
         {/* Close Button */}
         <div className="navMenu_items-close">
           <p className="navMenu_close">
-            <i className="uil uil-times"></i>
+            <i className="uil uil-times" onClick={() => setIfNav(true)}></i>
           </p>
         </div>
       </div>

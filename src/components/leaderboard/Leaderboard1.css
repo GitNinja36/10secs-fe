@@ -13,6 +13,7 @@
   margin-top: 0rem;
   border-radius: 15px;
   width: 400px;
+  height: 780px;
   margin: 20px auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -23,6 +24,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  padding-top: 1rem;
 }
 
 .leaderboard-title {
@@ -124,9 +126,13 @@
 }
 
 .leader-gold {
-  /* background-color: #f7c90c; */
   color: #f7c90c;
+}
+.leader-bronze{
   margin-top: 2rem;
+}
+.leader-silver{
+  margin-top: 3rem;
 }
 
 .leader-avatar {
@@ -170,8 +176,12 @@
 .player-info {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
   color: #fffaf0;
+  height: 2.4rem;
+  width: 400px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .player-rank {
